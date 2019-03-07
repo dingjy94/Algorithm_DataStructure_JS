@@ -5,3 +5,8 @@
   nums[nums.indexOf(max);] = -Infinity;
   const secondMax = Math.max(...nums);
 ```
+
+### reverse string
+```JavaScript
+  return s.split('').reverse().join('')
+```
