@@ -1,0 +1,16 @@
+{
+  "name": "JS_NOTE",
+  "version": "1.0.0",
+  "description": "JavaScript study note",
+  "author": "Jingyi Ding",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "babel-jest": "^24.3.1",
+    "jest": "^24.3.1"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}
