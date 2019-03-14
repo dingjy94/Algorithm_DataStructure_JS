@@ -20,4 +20,7 @@ The KMP matching algorithm uses degenerating property (pattern having same sub-p
 
 Two steps:
 1. preprocess: get the get lps (longest proper prefix which is also suffix) array of pattern string. `lps[i]` means the lps for substring(0, i + 1).
-2. search: when **mismatch**, let's say the index of pattern is j, text string index is i, which means `pattern[0, j - 1] == text[i - j, i - 1]`, and from `lps[j - 1]`, we can get the lps length. So in text[i - j, i - 1], there is a `prefix == suffix` whose length is lps[i - 1]. So, we know that the suffix of `text[0, i - 1]` will match prefix of `pattern[0, lps[j - 1]]`
+
+2. search: when **mismatch**, let's say the index of pattern is j, text string index is i, which means `pattern[0, j - 1] == text[i - j, i - 1]`, and from `lps[j - 1]`, we can get the lps length. So in text[i - j, i - 1], there is a `prefix == suffix` whose length is lps[i - 1]. So, we know that the suffix of `text[0, i - 1]` will match prefix of `pattern[0, lps[j - 1]]`, so the next comparision is between `text[i]` and `pattern[lps[j - 1]]`.
+
+Example: [Pattern Searching](/String/kmp.js)
