@@ -1,4 +1,4 @@
-# JS_Note
+# Algorithm and Data Structure
 My personal note learn JavaScript
 
 ## algorithm
