@@ -1,4 +1,4 @@
-import Stack from "./stack";
+import Stack from './stack';
 
 describe('Stack', () => {
   const stack = new Stack();
@@ -25,6 +25,5 @@ describe('Stack', () => {
   it('should pop 1, and stack is empty', () => {
     expect(stack.pop()).toBe(1);
     expect(stack.isEmpty()).toBeTruthy();
-  })
+  });
 });
-

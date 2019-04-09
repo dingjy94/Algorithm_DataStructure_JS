@@ -1,4 +1,4 @@
-import Queue from "./queue";
+import Queue from './queue';
 
 describe('Queue', () => {
   const queue = new Queue();
@@ -25,5 +25,5 @@ describe('Queue', () => {
   it('should remove 2, and queue is empty', () => {
     expect(queue.remove()).toBe(2);
     expect(queue.isEmpty()).toBeTruthy();
-  })
+  });
 });

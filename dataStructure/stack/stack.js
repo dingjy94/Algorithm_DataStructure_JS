@@ -1,12 +1,12 @@
 class Node {
-  constructor (val, next = null) {
+  constructor(val, next = null) {
     this.val = val;
     this.next = next;
   }
 }
 
 export default class Stack {
-  constructor () {
+  constructor() {
     this.top = null;
   }
 
