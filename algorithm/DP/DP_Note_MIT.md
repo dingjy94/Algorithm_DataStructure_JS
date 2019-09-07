@@ -77,7 +77,55 @@ time/sub = O(n)
 4. topoorder: increasing substring size
 5. DP(0, n)
 ### Edit distance
+Given two string x & y, what's the cheapest possible sequence of character edits (insert, delete, replace) to turn x -> y
+1. subprob: edit distance on x [i:] & y [j:] subprobs num: m * n, O(1) each
+2. guess: for each x[i], y[j]:
+          - replace
+          - delete x[i]
+          - insert y[j]
+3.
+```
+DP(i, j) = min(
+    cost of replace x[i] -> y[j] + DP(i + 1, j + 1),
+    cost of insert y[j] + DP(i, j + 1),
+    cost of delete x[i] + DP(i + 1, j)
+)
+```
+4. topo graph: matrix(i, j) insert go right, delete go down, replace go right-bottom
+5. DP(0, 0), O(mn)
 ### Knapsack
+- list of items (size, value)
+- Knapsack size S
+1. subprobs: suffix i of items when remain size X
+2. guess: is item i in the subset or not (boolean)
+3. `DP(i, X) = max(DP(i + 1, X), DP(i + 1, X - si) + vi)`
+4. DP(0, S), O(nS)
 ### Piano/Guitar fingering
+- given sequence of n notes, find fingering for each note (single note)
+- fingures: 1 ... F
+- difficulty measure: d(p, f, q, g) key p -> q, fingure f => g
+1. subprobs: how to play notes [i:] when use f for notes[i]
+2. guess: finger g for notes[i + 1]
+3. `DP(i, f) = min((DP(i + 1, g) + d(i, f, i + 1, g)) for g in 1...F)`
+4. toporder: `for i in reversed(range(n)): for f in 1 ... F`
+5. min(DP(0, f) for f in 1...F) => O(nF^2)
+- If need to combine with string (guitar) => generalize 'finger' to 'finger + string'
+- Multiple notes => the past need to remember is 'fingers to notes/null'
 ### Tetris training
+- seq of n pieces
+- drop from top
+- full rows don't clear
+- width is small
+- initial empty
+- can you survive?
+1. subprob: suffix pieces[i:] given board skyline
+2. guess: how to play for each piece (4 * width choice)
 ### Super Mario Bros I
+- given level n
+- small screen
+- configuratoin
+  - everything on scree c(w, h) (for each pixel)
+  - Mario's velocity
+  - score
+  - time
+  - screen vs level
